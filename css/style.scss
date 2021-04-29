@@ -1,0 +1,19 @@
+@import './init';
+@import './layout';
+
+ .main-title {
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 40px;
+  }
+
+.me {
+      width: 100%;
+      background-image: url('../asset/image/me.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+    }
+
+
+ 
