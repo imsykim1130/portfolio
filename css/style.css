@@ -19,6 +19,10 @@ h1 {
 }
 
 .nav-list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -30,7 +34,13 @@ h1 {
           align-items: center;
   width: 100%;
   height: 8vh;
+  background-color: white;
+  z-index: 1000;
   padding: 0 10%;
+}
+
+main {
+  margin-top: 8vh;
 }
 
 .landing {
@@ -74,83 +84,46 @@ h1 {
   overflow: hidden;
 }
 
-.project-landing {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: -1;
+.project-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
 }
 
-.project-landing-top {
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+@media (min-width: 800px) {
+  .project-container {
+    margin: 0 10%;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -webkit-column-gap: 3rem;
+            column-gap: 3rem;
+  }
 }
 
-.project-landing-bottom {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.project-title {
+.project {
+  width: 90%;
+  margin-bottom: 5rem;
   position: relative;
+}
+
+.project .title {
+  font-size: 2.4rem;
+  line-height: 1.1;
+  text-align: end;
   font-weight: bold;
 }
 
-.project-number {
+.project::after {
+  content: attr(data-number);
   position: absolute;
-  left: -1rem;
-  top: -0.4rem;
-  font-size: 0.8rem;
+  top: 0;
+  right: -1.8rem;
+  font-weight: bold;
 }
 
-.project-count {
-  position: absolute;
-  bottom: 2vh;
-}
-
-.project-count .line {
-  width: 60px;
-  height: 1px;
-  background-color: black;
-  display: inline-block;
-  margin: 0 1rem;
-}
-
-.project-image {
+.project-representative-image {
   width: 100%;
-  height: 100%;
-  background-image: url("../asset/image/image1.jpg");
-  background-size: cover;
-  background-position: center;
 }
 
 .project-detail-main {
