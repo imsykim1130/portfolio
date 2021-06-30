@@ -1,7 +1,59 @@
+.nav-list {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 0.02rem;
+}
+
+.main-title {
+  text-transform: uppercase;
+  font-size: 50px;
+  font-weight: 800;
+}
+
+.me {
+  width: 100%;
+  background-image: url("../asset/image/me.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+.preview-image::before {
+  background-color: rgba(128, 128, 128, 0.144);
+}
+
+.view-more-btn {
+  border: 0;
+  background-color: transparent;
+  font-size: 0.9rem;
+  letter-spacing: 0.04rem;
+  cursor: pointer;
+  transition: letter-spacing 0.3s ease-out;
+
+  &:hover {
+    letter-spacing: 0.2rem;
+  }
+}
+
+// .my-introduction {
+//   max-width: 400px;
+//   position: absolute;
+//   margin-top: 10px;
+//   color: rgb(110, 110, 110);
+//   opacity: 0;
+//   transition: opacity 0.5s ease-out;
+
+//   &.active {
+//     opacity: 1;
+//   }
+// }
+
 @mixin main-padding {
   padding: 0 10%;
 }
 
+// landing
 .nav-list {
   position: fixed;
   top: 0;
@@ -25,12 +77,15 @@ main {
   display: grid;
   grid-template-rows: 1fr 1fr;
   height: 92vh;
-  @include main-padding();
 
-  .top {
+  .landing-text-area {
     display: flex;
-    align-items: flex-end;
     justify-content: center;
+    align-items: center;
+
+    .main-title {
+      font-size: 2rem;
+    }
 
     .contact {
       margin-top: 1rem;
@@ -40,9 +95,17 @@ main {
     .contact img {
       margin-right: 1rem;
     }
+
+    .github-icon {
+      transform: translateY(2px);
+    }
+
+    .kakaotalk-icon {
+      transform: translateY(2px);
+    }
   }
 
-  .bottom {
+  .landing-image-area {
     display: flex;
     justify-content: center;
     position: relative;
@@ -52,6 +115,8 @@ main {
 
 // project
 .project-container {
+  position: fixed;
+  top: 8vh;
   display: grid;
   grid-template-columns: 1fr;
 
@@ -140,13 +205,22 @@ main {
 }
 
 // media query
-@media (min-width: 1000px) {
+@media (min-width: 800px) {
   .landing {
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr;
 
-    .top {
-      align-items: center;
+    .landing-text-area {
+      justify-content: flex-end;
+      transform: translateY(-2.4rem);
+
+      .main-title {
+        font-size: 2.5rem;
+      }
+    }
+
+    .landing-image-area {
+      margin: 0 80px;
     }
   }
 
